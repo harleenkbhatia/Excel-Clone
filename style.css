@@ -8,6 +8,8 @@ body {
 .container {
     height: 100vh;
     width: 100vw;
+    background-color: #fff;
+    color: #444;
 }
 .title-bar{
     height: 5vh;
@@ -152,10 +154,6 @@ body {
     overflow: scroll;
 }
 
-.sheet-bar {
-    height: 3vh;
-    width: 100vw;
-}
 .column-name{
     min-width: 100px;
     width: 100px;
@@ -190,7 +188,8 @@ body {
     font-size: 14px;
     font-family: Noto Sans;
     display: flex;
-    align-items: center;
+    flex-direction: column;
+    justify-content: center;
 }
 .input-cell.selected{
     border: 3px solid #217346;
@@ -211,4 +210,248 @@ body {
 }
 .menu-icon.selected{
     background-color: lightgray;
+}
+#fill-color-icon{
+    border-bottom: 4px solid #fff;
+    padding-bottom: 2px;
+}
+#text-color-icon{
+    border-bottom: 4px solid #444;
+    padding-bottom: 2px;
+}
+.sheet-bar{
+    display: flex;
+    height: 3vh;
+    width: 100vw;
+    align-items: center;
+}
+.sheet-scroller{
+    margin-right: 5px;
+    display: flex;
+    align-items: center;
+    cursor : pointer;
+}
+.sheet-tab-container{
+    margin-right: 10px;
+    display:flex;
+    border-left: 0.5px solid lightgray;
+    overflow: scroll;
+}
+
+.sheet-tab{
+    display: flex;
+    justify-content: center;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 3px;
+    border-right: 0.5px solid lightgray;
+    font-weight: 600;
+}
+.sheet-tab:hover{
+    background-color: lightgray;
+    cursor: pointer;
+}
+.sheet-tab.selected{
+    color: #217346;
+    border-bottom: 5px solid #217346;
+}
+.sheet-tab.selected:hover{
+    background-color: #fff;
+    cursor: default;
+}
+.add-sheet{
+    color: #217346;
+    margin-right: 10px;
+}
+.add-sheet:hover, .scroller:hover{
+    cursor: pointer;
+    transform: scale(1.2);
+}
+.scroller{
+    font-size: 30px;
+}
+.sheet-options-modal{
+    position: absolute;
+    background-color: #fff;
+    box-shadow: rgb(0 0 0 / 13%) 0px 6.4px 14.4px 0px, rgb(0 0 0 / 11%) 0px 1.2px 3.6px 0px
+}
+.option {
+    padding: 7px 15px 7px 15px;
+}
+
+.option:hover {
+    background-color: lightgray;
+    cursor: default;
+}
+.sheet-modal-parent{
+    height : 100%;
+    width : 100%;
+    position : absolute;
+    top: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.sheet-rename-modal, .sheet-delete-modal{
+    position: absolute;
+    background-color: #fff;
+    box-shadow: rgb(0 0 0 / 13%) 0px 6.4px 14.4px 0px, rgb(0 0 0 / 11%) 0px 1.2px 3.6px 0px;
+    padding : 15px;
+    min-width: 400px;
+}
+.sheet-modal-title{
+    text-align: center;
+    font-size: 24px;
+    color: #217346;
+    font-weight : bold;
+}
+.sheet-modal-input-container, .sheet-modal-detail-container{
+    
+    padding: 15px;
+}
+.sheet-modal-detail-container{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+}
+.sheet-modal-input-title{
+    display: block;
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+.sheet-modal-input{
+    width: 100%;
+    height: 2rem;
+    font-size: 1.2rem;
+    outline-color: #217346;
+}
+.sheet-modal-confirmation{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    justify-content: space-evenly;
+    padding: 15px;
+}
+.button{
+    border: 1px solid;
+    width: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 30px;
+    width:100px
+}
+.ok-button, .delete-button {
+    background-color: #217346;
+    color: #fff;
+    height: 40px;
+    border-radius: 3px;
+}
+
+.ok-button:hover, .delete-button:hover {
+    background-color: #175533;
+    cursor: pointer;
+}
+
+.cancel-button {
+    height: 40px;
+    border-radius: 3px;
+}
+
+.cancel-button:hover {
+    background-color: rgb(233, 233, 233);
+    cursor: pointer;
+}
+.sheet-modal-detail-title{
+    font-weight : 600;
+    font-size:24px;
+}
+.delete-icon{
+    margin-right: 5px;
+}
+.loader-parent{
+    background-color: rgba(255, 255, 255, 0.5);
+    flex-direction: column;
+
+}
+.loading{
+    font-size: 40px;
+    color: #217346;
+}
+.error{
+    color: red;
+    font-size: 14.5px;
+}
+.sheet-tab-container::-webkit-scrollbar {
+    display: none;
+}
+/* hides scrollbar for edge, firefox, IE*/
+.sheet-tab-container {
+    -ms-overflow-style: none; /* IE & Edge */
+    scrollbar-width: none; /*firefox*/
+}
+.file-modal{
+    position: absolute;
+    top:0;
+    left:0;
+    height: 100vh;
+    width: 0vw;
+    display: flex;
+}
+.file-options-modal{
+    width: 12rem;
+    height: 100%;
+    background-color: #217346;
+    color: #fff;
+
+}
+.file-recent-modal{
+    height: 100vh;
+    width: calc(50% - 12rem); /* 50%==50vw */
+    background-color: #fff;
+}
+.new , .close , .save , .open{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    position: relative;
+    font-size: 16px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+}
+.save-icon, .new-icon , .close-icon, .open-icon{
+    position: absolute;
+    left:2rem;
+}
+.close{
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+.close-icon{
+    transform: rotate(90deg); /*for clockwise write +90 and for anticw write -90*/
+}
+
+.save:hover, .new:hover , .close:hover, .open:hover{
+    background-color: #124b2c;
+    cursor: pointer;
+}
+.file-transparent-modal{
+    height: 100%;
+    width: 50%;
+}
+.already-saved-modal{
+    height : 100%;
+    width : 100%;
+    position : absolute;
+    top: 0;
+    background-color: rgba(0, 0, 0, 0);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.already-saved-modal-text{
+    font-size: 30px;
+    color : rgba(0, 0, 0, 0.829);
 }
